@@ -4,10 +4,10 @@ const sass = require("gulp-sass")(require("sass"));
 const browserSync   = require('browser-sync');
 
 // ファイルパス
-const path_root = "htdocs/root";
-const path_dir_sass = "htdocs/src/sass/*.scss";
-const path_dir_css = "htdocs/root/dist/css";
-const path_dir_js = "htdocs/root/dist/js";
+const path_root = "docs";
+const path_dir_sass = "docs/src/sass/*.scss";
+const path_dir_css = "docs/dist/css";
+const path_dir_js = "docs/dist/js";
 
 
 // sass compile task
