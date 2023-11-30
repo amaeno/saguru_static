@@ -5,9 +5,9 @@ const browserSync   = require('browser-sync');
 
 // ファイルパス
 const path_root = "docs";
-const path_dir_sass = "docs/src/sass/*.scss";
-const path_dir_css = "docs/dist/css";
-const path_dir_js = "docs/dist/js";
+const path_dir_sass = "src/sass/*.scss";
+const path_dir_css = "docs/common/css";
+const path_dir_js = "docs/common/js";
 
 
 // sass compile task
