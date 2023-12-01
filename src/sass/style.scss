@@ -1,3 +1,7 @@
 @charset "utf-8";
 
-@use "./reset.scss";
+@use "./reset";
+@use "./common";
+@use "./header";
+@use "./about";
+@use "./main";

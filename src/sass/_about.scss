@@ -1,0 +1,174 @@
+@charset "utf-8";
+@use "./common" as com;
+
+
+.about  {
+    width: 60%;
+    margin: 0 auto 100px;
+    font-size: 1.8rem;
+}
+
+.aboutTxt {
+    margin-bottom: 30px;
+
+    &__em_bold {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: com.$color_green;
+    }
+}
+
+.aboutTxt__note {
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 1em;
+    &::before {
+        content: "※";
+        margin-right: 5px;
+    }
+}
+
+.about__index {
+    margin-bottom: 100px;
+}
+
+.about__ttl  {
+    margin-bottom: 40px;
+}
+
+.about__lead {
+    margin-bottom: 60px;
+    font-size: 2rem;
+    line-height: 1.8;
+    padding: 10px 0;
+    @include com.setBoxBorder(com.$color_green);
+}
+
+.about__message  {
+    margin-bottom: 50px;
+}
+
+.aboutWorry__list {
+    margin-bottom: 20px;
+    padding: 1em;
+    border: 2px solid com.$color_gray;
+    border-radius: 7px;
+}
+
+.aboutWorry__item {
+
+    &:not(:first-of-type) {
+        margin-top: 1em;
+    }
+
+    &::before {
+        content: "・";
+    }
+}
+
+.about__link {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.about__linkItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    font-weight: bold;
+    color: com.$color_green;
+    padding: 0.5em 1em;
+    border: 3px solid com.$color_green;
+    border-radius: 7px;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &_green {
+        color: com.$color_white;
+        background-color: com.$color_green;
+    }
+}
+
+.about__description {
+    // リストアイテムの頭につける数字のカウンター
+    counter-reset: number 0;
+    margin-bottom: 100px;
+}
+
+.aboutStep__list {
+    margin-top: 30px;
+    margin-left: 1em;
+    width: 70%;
+}
+
+.aboutStep__item {
+    font-weight: bold;
+    border-bottom: 3px solid com.$color_green;
+
+    &:not(:first-of-type) {
+        margin-top: 1em;
+    }
+
+    &::before {
+        font-size: 1.6rem;
+        color: com.$color_white;
+        margin-right: 0.5em;
+        counter-increment: number 1;
+        content: counter(number);
+        padding: 0.5em 0.7em;
+        background-color: com.$color_green;
+    }
+}
+
+.aboutDetail {
+    // リストアイテムの頭につける数字のカウンター
+    counter-reset: number 0;
+}
+
+.aboutDetail__step {
+    &:not(:last-of-type) {
+        margin-bottom: 60px;
+    }
+}
+
+.aboutDetail__ttl {
+    display: flex;
+    align-items: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 3px solid com.$color_green;
+
+    &::before {
+        font-size: 1.6rem;
+        color: com.$color_white;
+        background-color: com.$color_green;
+        counter-increment: number 1;
+        content: counter(number);
+        padding: 0.5em 0.8em;
+        margin-right: 0.5em;
+    }
+}
+
+.aboutDetail__list {
+    margin-bottom: 20px;
+    padding: 1em;
+    border: 2px solid com.$color_gray;
+    border-radius: 7px;
+}
+
+.aboutDetail__item {
+
+    &:not(:first-of-type) {
+        margin-top: 1em;
+    }
+
+    &::before {
+        content: "・";
+    }
+}
