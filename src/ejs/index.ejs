@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <%- include('./_head', {path: "https://amaeno.github.io/saguru_static"}); %>
-    <%- include('./_body'); %>
+    <%- include('./_head', {root_path: "https://amaeno.github.io/saguru_static"}); %>
+    <body class="body">
+        <%- include('./_header'); %>
+        <%- include('./_main'); %>
+    </body>
 </html>

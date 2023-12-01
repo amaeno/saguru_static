@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+// ============================================
+// 使用色一覧
+// ============================================
+$color_black: #212121;
+$color_gray: #494440;
+$color_lightGray: #E4E2E0;
+$color_white: #FFFFFF;
+$color_green: #2E8540;
+$color_lightGreen: #B7EAB8;
+$color_red: #CD2026;
+$color_blue: #0071BC;
+
+
+// ============================================
+//  variable 
+// ============================================
+$maxWidth: 1100px;
+$headerHeight: 90px;
+
+
+// ============================================
+// mixin 
+// ============================================
+/************************************************
+    @breief:  ブロックの上下に線を設定する
+    @param[1]:  線の色
+    @return: -
+************************************************/
+@mixin setBoxBorder($borderColor){
+    border-top: 3px solid $borderColor;
+    border-bottom: 3px solid $borderColor;
+}
+
+// ============================================
+// style
+// ============================================
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: YuGothic,'Yu Gothic',sans-serif;
+    font-size: 62.5%;
+    color: $color_black;
+    background-color: $color_white;
+    // スクロールバー全ページで表示(スクロールバーの有無でレイアウトがズレるため)
+    overflow-y: scroll;
+}
+
+.body__header {
+    height: $headerHeight;
+    padding: 0 100px;
+}
+
+.body__main {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    // 固定ヘッダーと重ならないためのpadding
+    padding-top:  $headerHeight;
+    padding-bottom: 30px;
+}
+
+.body__flashMessage {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px;
+    animation: message_fade 4s ease-out;
+    top: 0;
+    right: 10%;
+    opacity: 1;
+
+    &_alert {
+        color: $color_red;
+        @include setBoxBorder($color_red);
+    }
+
+    &_notice {
+        color: $color_blue;
+        @include setBoxBorder($color_blue);
+    }
+}
+
+@keyframes message_fade {
+    0%  {top: 0;}
+    10% {top: calc($headerHeight + 15px);} 
+    90% {   top: calc($headerHeight + 15px);
+            opacity: 1;}
+    100% {  top: 0;
+            opacity: 0;} 
+}

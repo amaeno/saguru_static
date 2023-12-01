@@ -1,0 +1,825 @@
+@charset "utf-8";
+@use "./common" as com;
+
+// ============================================
+// variable 
+// ============================================
+$mainMerginTop: 150px;
+
+$episodeTableTempCol: 1.2fr 4fr 4fr 2fr 4fr 1fr;
+$analysisQ1TableTempCol: 1fr 1fr;
+$analysisQ2TableTempCol: 1fr;
+$summaryTableTempCol: 1fr;
+
+$analysisQ2TableArrowWidth: 30px;
+
+$chartWidth: com.$maxWidth;
+// mergin抜きの数値は100の倍数に設定すること！(1ドットあたりの数値が少数になると表現できないため)
+$chartHeight: 320px;
+$chartTextWidth: 71px;
+$chartTextHeight: 300px;
+
+
+// ============================================
+// mixin 
+// ============================================
+/************************************************
+    @breief:  クラス名・行数・幅を指定してgridテーブルを作成
+    @param[1]:  テーブルのクラス名(xxxTableというクラスにスタイリング)
+    @param[2]:  grid-template-columns
+    @return: -
+************************************************/
+@mixin makeGridTable($tableName, $girdTempCol){
+    .#{$tableName}Table {
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    .#{$tableName}Table__header {
+        display: grid;
+        grid-template-columns: $girdTempCol;
+        color: com.$color_white;
+        font-weight: bold;
+        text-align: center;
+        background-color: com.$color_gray;
+        padding: 0.5em 0;
+        border-radius: 10px;
+        margin-bottom: 5px;
+    }
+    
+    .#{$tableName}Table__row {
+        position: relative;
+        display: grid;
+        grid-template-columns: $girdTempCol;
+        border: 1px solid com.$color_gray;
+        border-radius: 10px;
+        margin-bottom: 5px;
+
+        // // 隔行に色づけ
+        // &:nth-of-type(odd) {
+        //     background-color: com.$color_lightGray;
+        // }
+    }
+    
+    .#{$tableName}Table__column {
+        position: relative;
+        font-size: 1.5rem;
+
+        // 各行の仕切り" | "
+        &:not(:last-of-type) {
+            &::before {
+                position: absolute;
+                content: "";
+                width: 2px;
+                height: calc(100% - 10px);
+                top: 50%;
+                right: -1px;
+                transform: translate(0, -50%);
+                background-color: com.$color_lightGray;
+            }
+        }
+    }
+
+    .#{$tableName}Table__input,
+    .#{$tableName}Table__textarea {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow-y: hidden;
+    }
+
+    .#{$tableName}Table__textarea {
+        padding: 0.5em 1em;
+    }
+
+    .#{$tableName}Table__input::-webkit-outer-spin-button,
+    .#{$tableName}Table__input::-webkit-inner-spin-button {
+        margin-left: 5px;
+        margin-right: 23px;
+        opacity: 1;
+    }
+
+    .#{$tableName}Table__formSendBtn,
+    .analysisTable__formSendBtn {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding: 0.5rem 2rem;
+        margin: 5px 0;
+        color: com.$color_white;
+        background-color: com.$color_blue;
+        border-radius: 7px;
+    
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+
+
+// ============================================
+// style
+// ============================================
+.main {
+    position: relative;
+    width: com.$maxWidth;
+    max-width: com.$maxWidth;
+}
+
+.main__section:not(:first-of-type) {
+    padding-top: 30px;
+}
+
+.main__sectionTtl {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-top: 20px;
+
+    &::before {
+        content: "";
+        padding-right: 10px;
+        margin-right: 10px;
+        background-color: com.$color_black;
+    }
+}
+
+.main__sectionSubTtl {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+}
+
+.saguru__formSendBtn {
+    position: absolute;
+    top: calc(com.$headerHeight + 30px);
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    margin: 5px 0;
+    color: com.$color_white;
+    background-color: com.$color_blue;
+    border-radius: 7px;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.saguru__nav {
+    margin-top: 30px;
+    // リストアイテムの頭につける数字のカウンター
+    counter-reset: number 0;
+}
+
+// タブ切り替え ===================================
+.saguru__navList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+    border-bottom: 5px solid com.$color_green;
+}
+
+.saguru__navItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23.5%;
+    height: 2.4em;
+    color: com.$color_gray;
+    background-color: com.$color_lightGray;
+    border-radius: 10px 10px 0 0;
+}
+
+.saguru__navInput {
+    display: none;
+}
+
+.saguru__navLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    cursor:pointer; 
+
+    &::before {
+        font-size: 1.6rem;
+        counter-increment: number 1;
+        content: counter(number)"：";
+    }
+}
+
+.saguru__form .main__section {
+    position: absolute;
+    width: 100%;
+    height: 750px;
+    padding-top: 0;
+    // 固定ヘッダーと重ならないためのtop
+    top: calc(com.$headerHeight + $mainMerginTop);
+    left: 0;
+    background-color: com.$color_white;
+}
+
+// チェック時にタブのスタイル変更
+#episodeNav:checked~.saguru__nav #episodeLabel,
+#chronologyNav:checked~.saguru__nav #chronologyLabel,
+#analysisNav:checked~.saguru__nav #analysisLabel,
+#summaryNav:checked~.saguru__nav #summaryLabel {
+    position: relative;
+    color: com.$color_white;
+    background-color: com.$color_green;
+    border-bottom: transparent;
+    border-radius: 10px 10px 0 0;
+}
+
+// チェック時のみテーブル表示
+#episodeNav:checked~.saguru__form  #episodeArea,
+#chronologyNav:checked~.saguru__form  #chronologyArea,
+#analysisNav:checked~.saguru__form  #analysisArea,
+#summaryNav:checked~.saguru__form  #summaryArea {
+    z-index: 10000;
+}
+
+
+
+// episode ============================================
+@include makeGridTable("episode", $episodeTableTempCol);
+
+.episodeTable__ComBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: com.$color_gray;
+    background-color: com.$color_lightGray;
+    border: 2px solid com.$color_gray;
+    border-radius: 10px;
+    content: "";
+    margin-left: auto;
+    padding: 0.3em 0.5em;
+    cursor:pointer;
+}
+
+.episodeTable {
+    position: relative;
+    height: 700px;
+    margin-top: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+// スライド時にセルの枠線が見えてしまうため
+// 長方形ヘッダーに背景色枠線を重ねて丸角ヘッダーに見せる
+.episodeTable__header {
+    position: sticky;
+    background-color: com.$color_gray;
+    border-radius: 0px;
+    z-index: 5000;
+    top: 0;
+    left: 0;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        z-index: 5001;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        border-radius: 10px;
+        outline: 5px solid com.$color_white;
+    }
+}
+
+.-numItemAge,
+.-numItemMotivation {
+    position: relative;
+    text-align: right;
+    font-weight: bold;
+
+    &::after {
+        position: absolute;
+        content: ""; // 数値の単位は以下で個別に更新
+        top: 50%;
+        right: 7px;
+        transform: translate(0, -50%);
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+}
+
+// 数値の単位を個別に更新
+.-numItemAge::after {
+    content: "歳";
+}
+.-numItemMotivation::after {
+    content: "点";
+}
+
+.episodeTable__rowWrapper {
+    position: relative;
+}
+
+.episodeTable__btnWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+
+}
+
+.episodeTableMenuLavel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &::after {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        content: "…";
+        background-color: com.$color_lightGray;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 1.6rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor:pointer;
+    }
+}
+
+// メニュー中身
+[id^="episodeTableMenu__rowNo"] {
+    // デフォルトではメニュー内容非表示
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    top: 70%;
+    right: 10px;
+    z-index: 1000;
+    background-color: com.$color_white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 0px com.$color_gray;
+
+    & > .episodeTableMenuItem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        color: com.$color_black;
+        padding: 0.5em 1em;
+    
+        &:not(:last-of-type) {
+            position: relative;
+            &::after {
+                position: absolute;
+                content: "";
+                width: 85%;
+                padding-top: 2px;
+                background-color: com.$color_gray;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+}
+
+// メニュークリック時にメニュー内容表示
+[id^="episodeTableMenuBtn__rowNo"]:checked~[id^="episodeTableMenu__rowNo"] {
+    display: flex;
+}
+
+.episodeTable__btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.3em;
+    cursor:pointer;
+    font-size: 1.5rem;
+    z-index: 1;
+
+    &:hover {
+        position: relative;
+        &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: com.$color_lightGray;
+            border-radius: 7px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+    }
+}
+
+
+// chronology ============================================
+.chronology {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: $chartHeight 350px;
+    grid-row-gap: 10px;
+    margin-top: 15px;
+    width: $chartWidth;
+    overflow: scroll;
+    overflow-y: hidden;
+}
+
+.chronology__axis {
+    position: sticky;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: com.$color_white;
+    z-index: 1;
+    margin-left: auto;
+}
+
+.chronology__chartVaxis {
+    width: 100%;
+    height: 100%;
+}
+
+.chronology__chartBody {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    position: relative;
+    height: 100%;
+    z-index: -1;
+}
+
+.chronology__chart {
+    // widthはjsで行数に対応した幅に設定
+    height: 100%;
+}
+
+.chronology__textTtl {
+    position: relative;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    position: sticky;
+    width: 100%;
+    height: 100%;
+    background-color: com.$color_white;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+
+    &::after {
+        position: absolute;
+        content: "エピソード";
+        width: 40px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: com.$color_white;
+        border-radius: 7px;
+        border: 2px solid com.$color_gray;
+        color: com.$color_black;
+        font-size: 1.6rem;
+        font-weight: bold;
+        top: 0;
+        right: 0;
+
+        // 縦書き設定
+        writing-mode: vertical-rl;
+    }
+}
+
+.chronology__textList {
+    position: relative;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    width: $chartWidth;
+    margin-top: 3px;
+}
+
+.chronologyEpisodeList {
+    display: flex;
+}
+
+.chronologyEpisodeList__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: $chartTextWidth;
+    max-width: $chartTextWidth;
+    height: 100%;
+}
+
+.chronologyEpisodeList__itemAge {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: com.$color_white;
+    width: $chartTextWidth;
+    max-width: $chartTextWidth;
+    height: 40px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-bottom: 20px;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 80%;
+        height: 110%;
+        border-radius: 10px;
+        background-color: com.$color_gray;
+        bottom: -5%;
+        left: 10%;
+        z-index: -1;
+    }
+
+    &::after {
+        position: absolute;
+        content: "歳";
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        font-size: 1.4rem;
+        font-weight: normal;
+    }
+}
+
+.chronologyEpisodeList__itemText {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 100%;
+    height: $chartTextHeight;
+    padding: 10px;
+
+    // はみ出した文字は表示しない
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    // 縦書き設定
+    writing-mode: vertical-rl;
+    line-height: 1;
+    // 改行文字で改行できるようにする
+    white-space: pre-wrap;
+}
+
+.chronologyEpisodeList__itemBubble {
+    $grid_gap: 10px;
+    $canvas_ymergin: 10px;
+    $chartDot: calc(($chartHeight - 2*$canvas_ymergin) / 100);
+    bottom: calc(100% + $grid_gap + $canvas_ymergin + $chartDot*50);
+
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.chronologyBubbleLabel {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+
+[id^="chronologyBubbleDl__rowNo"] {
+    position: absolute;
+    opacity: 0;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 2fr 1fr 2fr;
+    content: "";
+    width: 400px;
+    height: 350px;
+    font-size: 1.6rem;
+    top: 20px;
+    left: 20px;
+    padding: 1em;
+    background-color: com.$color_white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 0px com.$color_gray;
+    transition: all 0.2s 0s ease-in;
+}
+
+[id^="chronologyBubbleLabel__rowNo"] { 
+    opacity: 0;
+    transition: all 0.1s 0s linear;
+}
+
+// ホバー時表示されるドット
+[id^="chronologyBubble__rowNo"]:checked~[id^="chronologyBubbleLabel__rowNo"] { 
+    background-color: com.$color_white;
+    border: 5px solid com.$color_green;
+    opacity: 1;
+}
+
+// ドットにホバー時、感情・振り返りを表示
+[id^="chronologyBubble__rowNo"]:checked~[id^="chronologyBubbleDl__rowNo"] { 
+    opacity: 1;
+}
+
+.chronologyBubbleDl__term  {
+    font-weight: bold;
+
+    &::before {
+        content: "";
+        padding-right: 0.5em;
+        height: 100%;
+        background-color: com.$color_gray;
+        margin-right: 0.5em;
+    }
+}
+
+.chronologyBubbleDl__desc {
+    &:not(:last-of-type) {
+        border-bottom: 1px solid com.$color_gray;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+
+// analysis ============================================
+@include makeGridTable("analysisQ1", $analysisQ1TableTempCol);
+@include makeGridTable("analysisQ2", $analysisQ2TableTempCol);
+
+.analysisTableList {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.analysisTableList__item {
+    display: grid;
+    grid-template-columns: 8fr 1fr 4fr;
+
+    &:not(:first-of-type) {
+        padding-top: 30px;
+    }
+}
+
+.analysisTableWrapper:nth-of-type(1) {
+    grid-column: 1 / 2;
+}
+
+.analysisTableWrapper:nth-of-type(2) {
+    grid-column: 3 / 4;
+}
+
+.analysisQ2Table {
+    position: relative;
+
+    // 三角矢印
+    &::before {
+        position: absolute;
+        content: "";
+        border: $analysisQ2TableArrowWidth solid;
+        border-color: transparent transparent transparent com.$color_lightGray;
+        transform: translate(-50%, 50%) ;
+        bottom: 50%;
+        left: calc(-12.5% + (0.5*$analysisQ2TableArrowWidth));
+    }
+}
+
+// summary ============================================
+@include makeGridTable("summary", $summaryTableTempCol);
+
+.summaryTableList {
+    position: relative;
+}
+
+// utility ============================================
+
+// テーブルの行を結合する
+.-mergeCellTop {
+    border-bottom: none;
+    margin-bottom: 0;
+    border-radius: 10px 10px 0 0;
+
+    & .episodeTable__column:not(:first-of-type) {
+        border-bottom: 2px solid com.$color_lightGray;
+    }
+}
+
+.-mergeCellMiddle {
+    border-top: none;
+    border-bottom: none;
+    margin-bottom: 0;
+    border-radius: 0;
+
+    & .episodeTable__column:not(:first-of-type) {
+        border-bottom: 2px solid com.$color_lightGray;
+    }
+
+    & .-numItemAge {
+        color: com.$color_lightGray;
+    }
+}
+
+.-mergeCellBottom {
+    border-top: none;
+    margin-top: 0;
+    border-radius: 0 0 10px 10px;
+
+    & .-numItemAge {
+        color: com.$color_lightGray;
+    }
+}
+
+// チャートの年齢をグループ化する
+.-mergeChartLeft {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 90%;
+        height: 110%;
+        border-radius: 10px 0 0 10px;
+        background-color: com.$color_gray;
+        bottom: -5%;
+        left: auto;
+        right: 0;
+        z-index: -1;
+    }
+}
+
+.-mergeChartCenter {
+    color: transparent;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 110%;
+        border-radius: 0;
+        background-color: com.$color_gray;
+        bottom: -5%;
+        left: auto;
+        right: 0;
+        z-index: -1;
+    }
+}
+
+.-mergeChartRight {
+    color: transparent;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 90%;
+        height: 110%;
+        border-radius: 0 10px 10px 0;
+        background-color: com.$color_gray;
+        bottom: -5%;
+        left: 0;
+        right: auto;
+        z-index: -1;
+    }
+}
+
+
