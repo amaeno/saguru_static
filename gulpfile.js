@@ -11,8 +11,9 @@ const path_root = "docs";
 const path_dir_sass = "src/sass/*.scss";
 const path_dir_css = "docs/common/css";
 const path_dir_js = "docs/common/js";
-const path_dir_dev_ejs = "src/ejs/dev_index.ejs";
-const path_dir_main_ejs = "src/ejs/index.ejs";
+const path_dir_ejss = "src/ejs/";
+const name_dev_ejs = "dev_*.ejs";
+const name_main_ejs = "main_*.ejs";
 const path_dir_ejs = "src/ejs/*.ejs";
 const path_dir_partial_ejs = "src/ejs/_*.ejs"; // パーシャルejsはコンパイル対象外
 
@@ -30,7 +31,7 @@ const browserSyncInit = (callback) => {
   browserSync.init({
     server: {
       baseDir: "./",   // rootファイルの指定
-      index: "/src/dev_index.html"  // 起動時に開くファイルを指定
+      index: "src/index.html"  // 起動時に開くファイルを指定
     },
   });
   callback();
@@ -44,20 +45,26 @@ const browserSyncReload = (callback) => {
 
 // ejs compile task (本番用)
 const compileEjs_main = (callback) => {
-  src([path_dir_main_ejs, '!' + path_dir_partial_ejs])
+  src([path_dir_ejss + name_main_ejs, '!' + path_dir_partial_ejs])
     .pipe(plumber())
     .pipe(ejs())
-    .pipe(rename({ extname: ".html" }))
+    .pipe(rename((path) => {
+      path.basename = path.basename.replace("main_", ""); // main_ を削除してhtmlを生成
+      path.extname = ".html";
+    }))
     .pipe(dest("docs/"))
   callback();
 }
 
 // ejs compile task (開発用)
 const compileEjs_dev = (callback) => {
-  src([path_dir_dev_ejs, '!' + path_dir_partial_ejs])
+  src([path_dir_ejss + name_dev_ejs, '!' + path_dir_partial_ejs])
     .pipe(plumber())
     .pipe(ejs())
-    .pipe(rename({ extname: ".html" }))
+    .pipe(rename((path) => {
+      path.basename = path.basename.replace("dev_", ""); // dev_ を削除してhtmlを生成
+      path.extname = ".html";
+    }))
     .pipe(dest("src/"));
   callback();
 }
