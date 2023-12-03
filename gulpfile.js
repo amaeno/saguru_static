@@ -9,9 +9,9 @@ const plumber = require("gulp-plumber");//エラーでビルドを中止させ�
 // ファイルパス
 const path_root = "docs";
 const path_dir_sass = "src/sass/*.scss";
-const path_dir_css = "docs/common/css";
+const path_dir_css = "src/common/css";
 const path_dir_dev_css = "src/common/css";
-const path_dir_js = "docs/common/js";
+const path_dir_js = "src/common/js";
 const path_dir_ejss = "src/ejs/";
 const name_dev_ejs = "dev_*.ejs";
 const name_main_ejs = "main_*.ejs";
@@ -24,7 +24,7 @@ const compileSass = (callback) => {
   src(path_dir_sass)                          // scssファイルを格納場所
     .pipe(sass({outputStyle: "compressed"}))  // cssファイルへコンパイル
     .pipe(dest(path_dir_css))                // cssフォルダー以下に保存
-    .pipe(dest(path_dir_dev_css));                
+    // .pipe(dest(path_dir_dev_css));                
   callback();  
 };
 
@@ -42,6 +42,7 @@ const browserSyncInit = (callback) => {
 // browserSync reload task
 const browserSyncReload = (callback) => {
   browserSync.reload();
+  copyCommonFiles(); // commonフォルダのファイルコピー
   callback();
 };
 
@@ -71,6 +72,12 @@ const compileEjs_dev = (callback) => {
   callback();
 }
 
+// commonフォルダコピー task
+const copyCommonFiles = () => {
+  return src('src/common/**/*.*')
+    .pipe(dest(path_root+"/common"));
+};
+
 // ファイル監視
 const watchFiles = () => {
   watch(path_dir_sass, compileSass);                  // scssファイル更新を監視
@@ -83,4 +90,4 @@ const watchFiles = () => {
 
 
 // npx gulp 実行時に起動するタスク
-exports.default = series(browserSyncInit, watchFiles, compileSass, compileEjs_main, compileEjs_dev, browserSyncReload);
+exports.default = series(browserSyncInit, watchFiles, compileSass, compileEjs_main, compileEjs_dev, copyCommonFiles, browserSyncReload);

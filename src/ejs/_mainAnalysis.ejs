@@ -36,11 +36,15 @@
                             </div>
                         <% }) %>
                     </div>
-                    <% for (let row_num = 0; row_num < 2; row_num++) { %>
+                    <% for (let row_num = 0; row_num < 3; row_num++) { %>
                     <div class="analysisQ1Table__row">
                         <% for (let col_num = 0; col_num < 2; col_num++) { %>
                         <div class="analysisQ1Table__column">
-                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_<%= row_num %>_c_<%= analysisTableQ1_cell_attr[col_num] %>" id="analysis_g_0_q1_r_<%= col_num %>_c_<%= analysisTableQ1_cell_attr[row_num] %>"></textarea>
+                            <textarea   class="analysisQ1Table__textarea" 
+                                        row="2" 
+                                        name="analysis_g_<%= group_num %>_q1_r_<%= row_num %>_c_<%= analysisTableQ1_cell_attr[col_num] %>" 
+                                        id="analysis_g_<%= group_num %>_q1_r_<%= row_num %>_c_<%= analysisTableQ1_cell_attr[col_num] %>">
+                            </textarea>
                         </div>
                         <% } %>
                     </div>
@@ -59,11 +63,15 @@
                             </div>
                         <% }) %>
                     </div>
-                    <% for (let row_num = 0; row_num < 2; row_num++) { %>
+                    <% for (let row_num = 0; row_num < 3; row_num++) { %>
                     <div class="analysisQ2Table__row">
                         <% for (let col_num = 0; col_num < 1; col_num++) { %>
                         <div class="analysisQ2Table__column">
-                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_<%= row_num %>_c_<%= analysisTableQ2_cell_attr[col_num] %>" id="analysis_g_0_q2_r_<%= row_num %>_c_<%= analysisTableQ2_cell_attr[col_num] %>"></textarea>
+                            <textarea   class="analysisQ2Table__textarea" 
+                                        row="2" 
+                                        name="analysis_g_<%= group_num %>_q2_r_<%= row_num %>_c_<%= analysisTableQ2_cell_attr[col_num] %>" 
+                                        id="analysis_g_<%= group_num %>_q2_r_<%= row_num %>_c_<%= analysisTableQ2_cell_attr[col_num] %>">
+                            </textarea>
                         </div>
                         <% } %>
                     </div>
