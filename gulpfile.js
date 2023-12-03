@@ -10,6 +10,7 @@ const plumber = require("gulp-plumber");//エラーでビルドを中止させ�
 const path_root = "docs";
 const path_dir_sass = "src/sass/*.scss";
 const path_dir_css = "docs/common/css";
+const path_dir_dev_css = "src/common/css";
 const path_dir_js = "docs/common/js";
 const path_dir_ejss = "src/ejs/";
 const name_dev_ejs = "dev_*.ejs";
@@ -22,7 +23,8 @@ const path_dir_partial_ejs = "src/ejs/_*.ejs"; // パーシャルejsはコンパ
 const compileSass = (callback) => {
   src(path_dir_sass)                          // scssファイルを格納場所
     .pipe(sass({outputStyle: "compressed"}))  // cssファイルへコンパイル
-    .pipe(dest(path_dir_css));                // cssフォルダー以下に保存
+    .pipe(dest(path_dir_css))                // cssフォルダー以下に保存
+    .pipe(dest(path_dir_dev_css));                
   callback();  
 };
 
@@ -30,8 +32,8 @@ const compileSass = (callback) => {
 const browserSyncInit = (callback) => {
   browserSync.init({
     server: {
-      baseDir: "./",   // rootファイルの指定
-      index: "src/index.html"  // 起動時に開くファイルを指定
+      baseDir: "./src",   // rootファイルの指定
+      index: "index.html"  // 起動時に開くファイルを指定
     },
   });
   callback();
