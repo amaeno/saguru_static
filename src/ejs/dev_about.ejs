@@ -2,7 +2,8 @@
 <html lang="ja">
     <%- include('./_head', {root_path: "."}); %>
     <body class="body">
-        <%- include('./_header', {root_path: "."}); %>
+        <%  let param = {root_path: ".", visiting: "about"}; %>
+        <%- include('./_header', {param: param}); %>
         <%- include('./_mainAbout'); %>
     </body>
 </html>
