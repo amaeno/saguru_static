@@ -1,4 +1,4 @@
-import {update_textarea_height} from "./common.js";
+import {limit_textarea_lines} from "./common.js";
 
 
 const id_summary_table_list = "summaryTableList";
@@ -22,7 +22,7 @@ export const init_summary_table = () => {
         // セルのテキストが変更された場合
         summary_cells[num].addEventListener('input', () => {
             // テキストの入力可能行数を制限
-            update_textarea_height(summary_cells[num]);
+            limit_textarea_lines(summary_cells[num]);
         });
     }
 }

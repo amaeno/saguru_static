@@ -1,4 +1,4 @@
-import {update_textarea_height} from "./common.js";
+import {limit_textarea_lines} from "./common.js";
 
 
 const id_analysis_table_area = "analysisTableList";
@@ -27,7 +27,7 @@ export const init_analysis_table = () => {
         // セルのテキストが変更された場合
         analysis_cells[num].addEventListener('input', () => {
             // テキストの入力可能行数を制限
-            update_textarea_height(analysis_cells[num]);
+            limit_textarea_lines(analysis_cells[num]);
         });
     }
 }
