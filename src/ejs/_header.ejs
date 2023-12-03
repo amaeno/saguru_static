@@ -4,7 +4,12 @@
         <span class="logo__ttl">Saguru</span>
     </h1>
     <nav class="nav header__nav">
-        <a href="<%- root_path %>/about.html" class="nav__item">Saguruとは</a>
-        <a href="<%- root_path %>/index.html" class="nav__item nav__item_currentPage">自己分析する</a>
+        <% if (param.visiting === "about") { %>
+            <a href="<%- param.root_path %>/about.html" class="nav__item nav__item_currentPage">Saguruとは</a>
+            <a href="<%- param.root_path %>/index.html" class="nav__item">自己分析する</a>
+        <% } else if (param.visiting === "index") { %>
+            <a href="<%- param.root_path %>/about.html" class="nav__item">Saguruとは</a>
+            <a href="<%- param.root_path %>/index.html" class="nav__item nav__item_currentPage">自己分析する</a>
+        <% } %>
     </nav>
 </header>
