@@ -1,0 +1,17 @@
+<section id="summaryArea" class="main__section">
+    <ul id="summaryTableList" class="summaryTableList main__sectionContent">
+        <% let summary_header = [["価値観・大切にしている考え", "value"], ["やりたいこと", "try"], ["活躍できる環境", "environment"], ["目指す姿", "vision"]]; %>
+        <% summary_header.forEach(header => { %>
+            <li class="summaryTable summaryTableList__item">
+                <div class="summaryTable__header">
+                    <div class="summaryTable__column"><%= header[0] %></div>
+                </div>
+                <div class="summaryTable__row">
+                    <div class="summaryTable__column">
+                        <textarea class="summaryTable__textarea" row="2" name="summary_g_0_r_0_c_<%= header[1] %>" id="summary_g_0_r_0_c_<%= header[1] %>"></textarea>
+                    </div>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+</section>

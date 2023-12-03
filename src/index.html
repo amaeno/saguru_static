@@ -19,28 +19,1395 @@
     </nav>
 </header>
         <main class="main body__main">
-    <input id="episodeNav" class="saguru__navInput" name="saguru__navInput" type="radio" checked >
-    <input id="chronologyNav" class="saguru__navInput" name="saguru__navInput" type="radio">
-    <input id="analysisNav" class="saguru__navInput" name="saguru__navInput" type="radio">
-    <input id="summaryNav" class="saguru__navInput" name="saguru__navInput" type="radio">
-
     <h2 class="main__sectionTtl">自己分析する</h2>
-    <nav class="saguru__nav">
-        <ol class="saguru__navList">
-            <li class="saguru__navItem">
-                <label id="episodeLabel" class="saguru__navLabel" for="episodeNav">これまでの振り返り</label>
+    <input id="episodeNav" class="saguru__navInput" name="saguru__navInput" type="radio" checked >
+<input id="chronologyNav" class="saguru__navInput" name="saguru__navInput" type="radio">
+<input id="analysisNav" class="saguru__navInput" name="saguru__navInput" type="radio">
+<input id="summaryNav" class="saguru__navInput" name="saguru__navInput" type="radio">
+
+<nav class="saguru__nav">
+    <ol class="saguru__navList">
+        <li class="saguru__navItem">
+            <label id="episodeLabel" class="saguru__navLabel" for="episodeNav">これまでの振り返り</label>
+        </li>
+        <li class="saguru__navItem">
+            <label id="chronologyLabel" class="saguru__navLabel" for="chronologyNav">モチベーションチャート</label>
+        </li>
+        <li class="saguru__navItem">
+            <label id="analysisLabel" class="saguru__navLabel" for="analysisNav">分析</label>
+        </li>
+        <li class="saguru__navItem">
+            <label id="summaryLabel" class="saguru__navLabel" for="summaryNav">まとめ</label>
+        </li>
+    </ol>
+</nav>
+    <div class="saguru__form">
+        <section id="episodeArea" class="main__section">
+    <button type="button" class="episodeTable__ComBtn episodeTable__btn_sort">年齢順に並び替え</button>
+    <div id="episodeTable" class="episodeTable main__sectionContent">
+        <div class="episodeTable__header">
+            <div class="episodeTable__column">年齢</div>
+            <div class="episodeTable__column">エピソード</div>
+            <div class="episodeTable__column">当時の感情・思考</div>
+            <div class="episodeTable__column">モチベーション</div>
+            <div class="episodeTable__column">振り返って気づいたこと</div>
+            <div class="episodeTable__column">操作</div>
+        </div>
+        
+            <div    id="episodeTable__rowNo0"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="6" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_0_c_age" id="episode_g_0_r_0_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_0_c_episode" id="episode_g_0_r_0_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_0_c_emotion" id="episode_g_0_r_0_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_0_c_motivation" id="episode_g_0_r_0_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_0_c_awareness" id="episode_g_0_r_0_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo0" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo0" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo0"></label>
+                        <ul id="episodeTableMenu__rowNo0">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo1"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="7" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_1_c_age" id="episode_g_0_r_1_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_1_c_episode" id="episode_g_0_r_1_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_1_c_emotion" id="episode_g_0_r_1_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_1_c_motivation" id="episode_g_0_r_1_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_1_c_awareness" id="episode_g_0_r_1_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo1" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo1" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo1"></label>
+                        <ul id="episodeTableMenu__rowNo1">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo2"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="8" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_2_c_age" id="episode_g_0_r_2_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_2_c_episode" id="episode_g_0_r_2_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_2_c_emotion" id="episode_g_0_r_2_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_2_c_motivation" id="episode_g_0_r_2_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_2_c_awareness" id="episode_g_0_r_2_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo2" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo2" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo2"></label>
+                        <ul id="episodeTableMenu__rowNo2">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo3"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="9" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_3_c_age" id="episode_g_0_r_3_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_3_c_episode" id="episode_g_0_r_3_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_3_c_emotion" id="episode_g_0_r_3_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_3_c_motivation" id="episode_g_0_r_3_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_3_c_awareness" id="episode_g_0_r_3_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo3" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo3" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo3"></label>
+                        <ul id="episodeTableMenu__rowNo3">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo4"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="10" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_4_c_age" id="episode_g_0_r_4_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_4_c_episode" id="episode_g_0_r_4_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_4_c_emotion" id="episode_g_0_r_4_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_4_c_motivation" id="episode_g_0_r_4_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_4_c_awareness" id="episode_g_0_r_4_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo4" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo4" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo4"></label>
+                        <ul id="episodeTableMenu__rowNo4">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo5"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="11" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_5_c_age" id="episode_g_0_r_5_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_5_c_episode" id="episode_g_0_r_5_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_5_c_emotion" id="episode_g_0_r_5_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_5_c_motivation" id="episode_g_0_r_5_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_5_c_awareness" id="episode_g_0_r_5_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo5" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo5" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo5"></label>
+                        <ul id="episodeTableMenu__rowNo5">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo6"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="12" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_6_c_age" id="episode_g_0_r_6_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_6_c_episode" id="episode_g_0_r_6_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_6_c_emotion" id="episode_g_0_r_6_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_6_c_motivation" id="episode_g_0_r_6_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_6_c_awareness" id="episode_g_0_r_6_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo6" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo6" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo6"></label>
+                        <ul id="episodeTableMenu__rowNo6">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo7"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="13" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_7_c_age" id="episode_g_0_r_7_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_7_c_episode" id="episode_g_0_r_7_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_7_c_emotion" id="episode_g_0_r_7_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_7_c_motivation" id="episode_g_0_r_7_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_7_c_awareness" id="episode_g_0_r_7_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo7" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo7" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo7"></label>
+                        <ul id="episodeTableMenu__rowNo7">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo8"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="14" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_8_c_age" id="episode_g_0_r_8_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_8_c_episode" id="episode_g_0_r_8_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_8_c_emotion" id="episode_g_0_r_8_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_8_c_motivation" id="episode_g_0_r_8_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_8_c_awareness" id="episode_g_0_r_8_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo8" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo8" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo8"></label>
+                        <ul id="episodeTableMenu__rowNo8">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo9"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="15" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_9_c_age" id="episode_g_0_r_9_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_9_c_episode" id="episode_g_0_r_9_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_9_c_emotion" id="episode_g_0_r_9_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_9_c_motivation" id="episode_g_0_r_9_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_9_c_awareness" id="episode_g_0_r_9_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo9" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo9" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo9"></label>
+                        <ul id="episodeTableMenu__rowNo9">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo10"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="16" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_10_c_age" id="episode_g_0_r_10_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_10_c_episode" id="episode_g_0_r_10_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_10_c_emotion" id="episode_g_0_r_10_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_10_c_motivation" id="episode_g_0_r_10_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_10_c_awareness" id="episode_g_0_r_10_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo10" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo10" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo10"></label>
+                        <ul id="episodeTableMenu__rowNo10">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo11"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="17" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_11_c_age" id="episode_g_0_r_11_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_11_c_episode" id="episode_g_0_r_11_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_11_c_emotion" id="episode_g_0_r_11_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_11_c_motivation" id="episode_g_0_r_11_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_11_c_awareness" id="episode_g_0_r_11_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo11" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo11" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo11"></label>
+                        <ul id="episodeTableMenu__rowNo11">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo12"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="18" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_12_c_age" id="episode_g_0_r_12_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_12_c_episode" id="episode_g_0_r_12_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_12_c_emotion" id="episode_g_0_r_12_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_12_c_motivation" id="episode_g_0_r_12_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_12_c_awareness" id="episode_g_0_r_12_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo12" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo12" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo12"></label>
+                        <ul id="episodeTableMenu__rowNo12">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo13"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="19" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_13_c_age" id="episode_g_0_r_13_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_13_c_episode" id="episode_g_0_r_13_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_13_c_emotion" id="episode_g_0_r_13_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_13_c_motivation" id="episode_g_0_r_13_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_13_c_awareness" id="episode_g_0_r_13_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo13" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo13" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo13"></label>
+                        <ul id="episodeTableMenu__rowNo13">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo14"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="20" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_14_c_age" id="episode_g_0_r_14_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_14_c_episode" id="episode_g_0_r_14_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_14_c_emotion" id="episode_g_0_r_14_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_14_c_motivation" id="episode_g_0_r_14_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_14_c_awareness" id="episode_g_0_r_14_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo14" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo14" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo14"></label>
+                        <ul id="episodeTableMenu__rowNo14">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo15"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="21" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_15_c_age" id="episode_g_0_r_15_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_15_c_episode" id="episode_g_0_r_15_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_15_c_emotion" id="episode_g_0_r_15_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_15_c_motivation" id="episode_g_0_r_15_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_15_c_awareness" id="episode_g_0_r_15_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo15" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo15" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo15"></label>
+                        <ul id="episodeTableMenu__rowNo15">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo16"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="22" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_16_c_age" id="episode_g_0_r_16_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_16_c_episode" id="episode_g_0_r_16_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_16_c_emotion" id="episode_g_0_r_16_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_16_c_motivation" id="episode_g_0_r_16_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_16_c_awareness" id="episode_g_0_r_16_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo16" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo16" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo16"></label>
+                        <ul id="episodeTableMenu__rowNo16">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo17"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="23" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_17_c_age" id="episode_g_0_r_17_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_17_c_episode" id="episode_g_0_r_17_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_17_c_emotion" id="episode_g_0_r_17_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_17_c_motivation" id="episode_g_0_r_17_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_17_c_awareness" id="episode_g_0_r_17_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo17" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo17" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo17"></label>
+                        <ul id="episodeTableMenu__rowNo17">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo18"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="24" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_18_c_age" id="episode_g_0_r_18_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_18_c_episode" id="episode_g_0_r_18_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_18_c_emotion" id="episode_g_0_r_18_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_18_c_motivation" id="episode_g_0_r_18_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_18_c_awareness" id="episode_g_0_r_18_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo18" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo18" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo18"></label>
+                        <ul id="episodeTableMenu__rowNo18">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+            <div    id="episodeTable__rowNo19"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="25" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_19_c_age" id="episode_g_0_r_19_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_19_c_episode" id="episode_g_0_r_19_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_19_c_emotion" id="episode_g_0_r_19_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_19_c_motivation" id="episode_g_0_r_19_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_19_c_awareness" id="episode_g_0_r_19_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo19" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo19" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo19"></label>
+                        <ul id="episodeTableMenu__rowNo19">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</section>
+        <section id="chronologyArea" class="main__section">
+    <dl class="chronology main__sectionContent">
+        <dt class="chronology__axis">
+            <canvas id="chronologyChartVaxis" class="chronology__chartVaxis"></canvas>
+        </dt>
+        <dd class="chronology__chartBody">
+            <canvas id="chronologyChart" class="chronology__chart"></canvas>
+        </dd>
+        <dt class="chronology__textTtl"></dt>
+        <dd class="chronology__textList">
+            <ul id="chronologyText"class="chronologyEpisodeList chronology__episode">
+                
+            </ul>
+        </dd>
+    </dl>
+</section>
+        <section id="analysisArea" class="main__section">
+    <ul id="analysisTableList" class="analysisTableList main__sectionContent">
+        
+        
+        
+        
+        
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    モチベーションが上がったのはどんな時？
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        
+                            <div class="analysisQ1Table__column">
+                                エピソード
+                            </div>
+                        
+                            <div class="analysisQ1Table__column">
+                                理由
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_example" id="analysis_g_0_q1_r_0_c_example"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_reason" id="analysis_g_0_q1_r_1_c_example"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_example" id="analysis_g_0_q1_r_0_c_reason"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_reason" id="analysis_g_0_q1_r_1_c_reason"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    モチベーション上昇の共通要素は？
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        
+                            <div class="analysisQ2Table__column">
+                                共通要素
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_0_c_similarity" id="analysis_g_0_q2_r_0_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_1_c_similarity" id="analysis_g_0_q2_r_1_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    モチベーションが下がったのはどんな時？
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        
+                            <div class="analysisQ1Table__column">
+                                エピソード
+                            </div>
+                        
+                            <div class="analysisQ1Table__column">
+                                理由
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_example" id="analysis_g_0_q1_r_0_c_example"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_reason" id="analysis_g_0_q1_r_1_c_example"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_example" id="analysis_g_0_q1_r_0_c_reason"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_reason" id="analysis_g_0_q1_r_1_c_reason"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    モチベーション低下の共通要素は？
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        
+                            <div class="analysisQ2Table__column">
+                                共通要素
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_0_c_similarity" id="analysis_g_0_q2_r_0_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_1_c_similarity" id="analysis_g_0_q2_r_1_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    成功体験は？
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        
+                            <div class="analysisQ1Table__column">
+                                エピソード
+                            </div>
+                        
+                            <div class="analysisQ1Table__column">
+                                要因
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_example" id="analysis_g_0_q1_r_0_c_example"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_reason" id="analysis_g_0_q1_r_1_c_example"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_example" id="analysis_g_0_q1_r_0_c_reason"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_reason" id="analysis_g_0_q1_r_1_c_reason"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    どんな学びや成長があった？
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        
+                            <div class="analysisQ2Table__column">
+                                学び・成長
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_0_c_similarity" id="analysis_g_0_q2_r_0_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_1_c_similarity" id="analysis_g_0_q2_r_1_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    失敗体験は？
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        
+                            <div class="analysisQ1Table__column">
+                                エピソード
+                            </div>
+                        
+                            <div class="analysisQ1Table__column">
+                                要因
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_example" id="analysis_g_0_q1_r_0_c_example"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_reason" id="analysis_g_0_q1_r_1_c_example"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_example" id="analysis_g_0_q1_r_0_c_reason"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_reason" id="analysis_g_0_q1_r_1_c_reason"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    どんな学びや成長があった？
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        
+                            <div class="analysisQ2Table__column">
+                                学び・成長
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_0_c_similarity" id="analysis_g_0_q2_r_0_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_1_c_similarity" id="analysis_g_0_q2_r_1_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    活躍できた・居心地の良かったチームでの活動は？
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        
+                            <div class="analysisQ1Table__column">
+                                エピソード
+                            </div>
+                        
+                            <div class="analysisQ1Table__column">
+                                理由
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_example" id="analysis_g_0_q1_r_0_c_example"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_reason" id="analysis_g_0_q1_r_1_c_example"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_example" id="analysis_g_0_q1_r_0_c_reason"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_reason" id="analysis_g_0_q1_r_1_c_reason"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    良い環境の共通要素は？
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        
+                            <div class="analysisQ2Table__column">
+                                共通要素
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_0_c_similarity" id="analysis_g_0_q2_r_0_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_1_c_similarity" id="analysis_g_0_q2_r_1_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    活躍できなかった・居心地の悪かったチームでの活動は？
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        
+                            <div class="analysisQ1Table__column">
+                                エピソード
+                            </div>
+                        
+                            <div class="analysisQ1Table__column">
+                                理由
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_example" id="analysis_g_0_q1_r_0_c_example"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_reason" id="analysis_g_0_q1_r_1_c_example"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_example" id="analysis_g_0_q1_r_0_c_reason"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_reason" id="analysis_g_0_q1_r_1_c_reason"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    悪い環境の共通要素は？
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        
+                            <div class="analysisQ2Table__column">
+                                共通要素
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_0_c_similarity" id="analysis_g_0_q2_r_0_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_1_c_similarity" id="analysis_g_0_q2_r_1_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    年代を通して好きなこと・得意なことは？
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        
+                            <div class="analysisQ1Table__column">
+                                好きなこと・得意なこと
+                            </div>
+                        
+                            <div class="analysisQ1Table__column">
+                                理由
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_example" id="analysis_g_0_q1_r_0_c_example"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_reason" id="analysis_g_0_q1_r_1_c_example"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_example" id="analysis_g_0_q1_r_0_c_reason"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_reason" id="analysis_g_0_q1_r_1_c_reason"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    好き・得意なことの共通要素は？
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        
+                            <div class="analysisQ2Table__column">
+                                共通要素
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_0_c_similarity" id="analysis_g_0_q2_r_0_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_1_c_similarity" id="analysis_g_0_q2_r_1_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    年代を通して嫌いなこと・苦手なことは？
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        
+                            <div class="analysisQ1Table__column">
+                                嫌いなこと・苦手なこと
+                            </div>
+                        
+                            <div class="analysisQ1Table__column">
+                                理由
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_example" id="analysis_g_0_q1_r_0_c_example"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_0_c_reason" id="analysis_g_0_q1_r_1_c_example"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ1Table__row">
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_example" id="analysis_g_0_q1_r_0_c_reason"></textarea>
+                        </div>
+                        
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_1_c_reason" id="analysis_g_0_q1_r_1_c_reason"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    嫌い・苦手なことの共通要素は？
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        
+                            <div class="analysisQ2Table__column">
+                                共通要素
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_0_c_similarity" id="analysis_g_0_q2_r_0_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="analysisQ2Table__row">
+                        
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_1_c_similarity" id="analysis_g_0_q2_r_1_c_similarity"></textarea>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+    </ul>
+</section>
+        <section id="summaryArea" class="main__section">
+    <ul id="summaryTableList" class="summaryTableList main__sectionContent">
+        
+        
+            <li class="summaryTable summaryTableList__item">
+                <div class="summaryTable__header">
+                    <div class="summaryTable__column">価値観・大切にしている考え</div>
+                </div>
+                <div class="summaryTable__row">
+                    <div class="summaryTable__column">
+                        <textarea class="summaryTable__textarea" row="2" name="summary_g_0_r_0_c_value" id="summary_g_0_r_0_c_value"></textarea>
+                    </div>
+                </div>
             </li>
-            <li class="saguru__navItem">
-                <label id="chronologyLabel" class="saguru__navLabel" for="chronologyNav">モチベーションチャート</label>
+        
+            <li class="summaryTable summaryTableList__item">
+                <div class="summaryTable__header">
+                    <div class="summaryTable__column">やりたいこと</div>
+                </div>
+                <div class="summaryTable__row">
+                    <div class="summaryTable__column">
+                        <textarea class="summaryTable__textarea" row="2" name="summary_g_0_r_0_c_try" id="summary_g_0_r_0_c_try"></textarea>
+                    </div>
+                </div>
             </li>
-            <li class="saguru__navItem">
-                <label id="analysisLabel" class="saguru__navLabel" for="analysisNav">分析</label>
+        
+            <li class="summaryTable summaryTableList__item">
+                <div class="summaryTable__header">
+                    <div class="summaryTable__column">活躍できる環境</div>
+                </div>
+                <div class="summaryTable__row">
+                    <div class="summaryTable__column">
+                        <textarea class="summaryTable__textarea" row="2" name="summary_g_0_r_0_c_environment" id="summary_g_0_r_0_c_environment"></textarea>
+                    </div>
+                </div>
             </li>
-            <li class="saguru__navItem">
-                <label id="summaryLabel" class="saguru__navLabel" for="summaryNav">まとめ</label>
+        
+            <li class="summaryTable summaryTableList__item">
+                <div class="summaryTable__header">
+                    <div class="summaryTable__column">目指す姿</div>
+                </div>
+                <div class="summaryTable__row">
+                    <div class="summaryTable__column">
+                        <textarea class="summaryTable__textarea" row="2" name="summary_g_0_r_0_c_vision" id="summary_g_0_r_0_c_vision"></textarea>
+                    </div>
+                </div>
             </li>
-        </ol>
-    </nav>
+        
+    </ul>
+</section>
+    </div>
 </main>
     </body>
 </html>

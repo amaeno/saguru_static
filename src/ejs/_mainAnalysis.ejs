@@ -1,0 +1,76 @@
+<section id="analysisArea" class="main__section">
+    <ul id="analysisTableList" class="analysisTableList main__sectionContent">
+        <% let analysisTableQ1_content_list =  [
+                                                    ["モチベーションが上がったのはどんな時？",                  ["エピソード",               "理由"]],
+                                                    ["モチベーションが下がったのはどんな時？",                  ["エピソード",               "理由"]],
+                                                    ["成功体験は？",                                            ["エピソード",               "要因"]],
+                                                    ["失敗体験は？",                                            ["エピソード",               "要因"]],
+                                                    ["活躍できた・居心地の良かったチームでの活動は？",          ["エピソード",               "理由"]],
+                                                    ["活躍できなかった・居心地の悪かったチームでの活動は？",    ["エピソード",               "理由"]],
+                                                    ["年代を通して好きなこと・得意なことは？",                  ["好きなこと・得意なこと",   "理由"]],
+                                                    ["年代を通して嫌いなこと・苦手なことは？",                  ["嫌いなこと・苦手なこと",   "理由"]],
+                                                ]; %>
+        <% let analysisTableQ1_cell_attr =  ["example", "reason"]; %>
+        <% let analysisTableQ2_content_list =  [
+                                                    ["モチベーション上昇の共通要素は？",    ["共通要素"]],
+                                                    ["モチベーション低下の共通要素は？",    ["共通要素"]],
+                                                    ["どんな学びや成長があった？",          ["学び・成長"]],
+                                                    ["どんな学びや成長があった？",          ["学び・成長"]],
+                                                    ["良い環境の共通要素は？",              ["共通要素"]],
+                                                    ["悪い環境の共通要素は？",              ["共通要素"]],
+                                                    ["好き・得意なことの共通要素は？",      ["共通要素"]],
+                                                    ["嫌い・苦手なことの共通要素は？",      ["共通要素"]],
+                                                ]; %>
+        <% let analysisTableQ2_cell_attr =  ["similarity"]; %>
+        <% for (let group_num = 0; group_num < analysisTableQ1_content_list.length; group_num++) { %>
+        <li class="analysisTableList__item">
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    <%= analysisTableQ1_content_list[group_num][0] %>
+                </h3>
+                <div class="analysisQ1Table">
+                    <div class="analysisQ1Table__header">
+                        <% analysisTableQ1_content_list[group_num][1].forEach(header => { %>
+                            <div class="analysisQ1Table__column">
+                                <%= header %>
+                            </div>
+                        <% }) %>
+                    </div>
+                    <% for (let row_num = 0; row_num < 2; row_num++) { %>
+                    <div class="analysisQ1Table__row">
+                        <% for (let col_num = 0; col_num < 2; col_num++) { %>
+                        <div class="analysisQ1Table__column">
+                            <textarea class="analysisQ1Table__textarea" row="2" name="analysis_g_0_q1_r_<%= row_num %>_c_<%= analysisTableQ1_cell_attr[col_num] %>" id="analysis_g_0_q1_r_<%= col_num %>_c_<%= analysisTableQ1_cell_attr[row_num] %>"></textarea>
+                        </div>
+                        <% } %>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <div class="analysisTableWrapper">
+                <h3 class="main__sectionSubTtl">
+                    <%= analysisTableQ2_content_list[group_num][0] %>
+                </h3>
+                <div class="analysisQ2Table">
+                    <div class="analysisQ2Table__header">
+                        <% analysisTableQ2_content_list[group_num][1].forEach(header => { %>
+                            <div class="analysisQ2Table__column">
+                                <%= header %>
+                            </div>
+                        <% }) %>
+                    </div>
+                    <% for (let row_num = 0; row_num < 2; row_num++) { %>
+                    <div class="analysisQ2Table__row">
+                        <% for (let col_num = 0; col_num < 1; col_num++) { %>
+                        <div class="analysisQ2Table__column">
+                            <textarea class="analysisQ2Table__textarea" row="2" name="analysis_g_0_q2_r_<%= row_num %>_c_<%= analysisTableQ2_cell_attr[col_num] %>" id="analysis_g_0_q2_r_<%= row_num %>_c_<%= analysisTableQ2_cell_attr[col_num] %>"></textarea>
+                        </div>
+                        <% } %>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </li>
+        <% } %>
+    </ul>
+</section>

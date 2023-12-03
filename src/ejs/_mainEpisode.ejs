@@ -1,0 +1,47 @@
+<section id="episodeArea" class="main__section">
+    <button type="button" class="episodeTable__ComBtn episodeTable__btn_sort">年齢順に並び替え</button>
+    <div id="episodeTable" class="episodeTable main__sectionContent">
+        <div class="episodeTable__header">
+            <div class="episodeTable__column">年齢</div>
+            <div class="episodeTable__column">エピソード</div>
+            <div class="episodeTable__column">当時の感情・思考</div>
+            <div class="episodeTable__column">モチベーション</div>
+            <div class="episodeTable__column">振り返って気づいたこと</div>
+            <div class="episodeTable__column">操作</div>
+        </div>
+        <% for (let row_num = 0; row_num < 20; row_num++) { %>
+            <div    id="episodeTable__rowNo<%= row_num %>"
+                    class="episodeTable__rowWrapper">
+                <div class="episodeTable__row">
+                    <div class="episodeTable__column -numItemAge">
+                        <input value="<%= row_num + 6 %>" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_<%= row_num %>_c_age" id="episode_g_0_r_<%= row_num %>_c_age">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_<%= row_num %>_c_episode" id="episode_g_0_r_<%= row_num %>_c_episode"></textarea>
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_<%= row_num %>_c_emotion" id="episode_g_0_r_<%= row_num %>_c_emotion"></textarea>
+                    </div>
+                    <div class="episodeTable__column -numItemMotivation">
+                        <input value="50" class="episodeTable__input" type="number" min="0" max="100" name="episode_g_0_r_<%= row_num %>_c_motivation" id="episode_g_0_r_<%= row_num %>_c_motivation">
+                    </div>
+                    <div class="episodeTable__column">
+                        <textarea class="episodeTable__textarea" row="2" name="episode_g_0_r_<%= row_num %>_c_awareness" id="episode_g_0_r_<%= row_num %>_c_awareness"></textarea>
+                    </div>
+                    <div class="episodeTable__column episodeTable__btnWrapper">
+                        <input type="checkbox" id="episodeTableMenuBtn__rowNo<%= row_num %>" class="saguru__navInput" name="episodeTableMenuBtn">
+                        <label id="episodeTableMenuLavel__rowNo<%= row_num %>" class="episodeTableMenuLavel" for="episodeTableMenuBtn__rowNo<%= row_num %>"></label>
+                        <ul id="episodeTableMenu__rowNo<%= row_num %>">
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_delete">この行を削除</button>
+                            </li>
+                            <li class="episodeTableMenuItem">
+                                <button type="button" class="episodeTable__btn episodeTable__btn_add">下に行を追加</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>
