@@ -1,4 +1,4 @@
-import {header_episode, limit_input_range, update_textarea_height} from "./common.js";
+import {header_episode, limit_input_range, limit_textarea_lines} from "./common.js";
 import {draw_chronology_chart_and_text} from "./chronology_chart.js";
 
 
@@ -27,7 +27,7 @@ export const init_episode_table = () => {
         if (event.target && 
             (event.target.classList.contains("episodeTable__input") || event.target.classList.contains("episodeTable__textarea"))) {
             // テキストのセルの高さを更新
-            update_textarea_height(event.target);
+            limit_textarea_lines(event.target);
             limit_input_range(event.target);
 
             let row_num = Number(event.target.id.match(/r_\d+/)[0].split("_")[1]);

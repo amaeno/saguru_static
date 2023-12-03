@@ -10,14 +10,36 @@ export const header_episode = {
     length: 5
 };
 
+// textareaの最大行数
+const MAX_LINE_NUM = 2;
 
 // ************************************************
-//     @breief:  textareaの高さを再設定する
+//     @breief:  textareaの入力可能行数を制限する
 //     @param[1]:  textareaのオブジェクト
 //     @return: -
 // ************************************************
-export const update_textarea_height = (textarea_object) => {
+export const limit_textarea_lines = (textarea_object) => {
     if(textarea_object.tagName === "TEXTAREA"){
+        let output_text = "";
+
+        // 入力テキストを列ごとに配列に格納
+        let lines = textarea_object.value.split("\n");
+
+        // 指定行数を超えた入力部分はテキストを削除
+        if(lines.length > MAX_LINE_NUM ){
+            for (let i = 0; i < MAX_LINE_NUM; i++) {
+                // 制限行到達時は改行しない
+                if(i === (MAX_LINE_NUM - 1)){
+                    output_text += lines[i];
+                }
+                else  {
+                    output_text += lines[i] + "\n";
+                }
+            }
+            textarea_object.value = output_text;
+        }
+
+        // 折り返しで2行い上になった時はセルの縦幅を伸ばす
         textarea_object.setAttribute("style", `height: ${textarea_object.scrollHeight}px;`);
         textarea_object.style.height = "auto";
         textarea_object.style.height = `${textarea_object.scrollHeight}px`;
