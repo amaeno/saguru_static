@@ -9,7 +9,7 @@
 
 そんな方でも気軽に自己分析を始められるようSaguruを制作しました。
 
-▼ アプリページ
+▼ アプリページ  
 https://amaeno.github.io/saguru_static/index.html
 
 ※ ウィンドウサイズの変更に対応していません。PCでの表示を推奨します。
