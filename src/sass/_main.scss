@@ -87,17 +87,25 @@ $chartTextHeight: 300px;
         width: 100%;
         height: 100%;
         overflow-y: hidden;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     .#{$tableName}Table__textarea {
+        resize: none;
         padding: 0.5em 1em;
+    }
+
+    .#{$tableName}Table__input {
+        padding-right: 30px;
     }
 
     .#{$tableName}Table__input::-webkit-outer-spin-button,
     .#{$tableName}Table__input::-webkit-inner-spin-button {
         -webkit-appearance: none;
-        margin-left: 5px;
-        margin-right: 23px;
+        -moz-appearance:textfield;
     }
 
     .#{$tableName}Table__formSendBtn,
