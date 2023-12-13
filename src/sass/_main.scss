@@ -95,9 +95,9 @@ $chartTextHeight: 300px;
 
     .#{$tableName}Table__input::-webkit-outer-spin-button,
     .#{$tableName}Table__input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
         margin-left: 5px;
         margin-right: 23px;
-        opacity: 1;
     }
 
     .#{$tableName}Table__formSendBtn,

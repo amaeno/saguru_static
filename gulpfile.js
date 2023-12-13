@@ -1,6 +1,8 @@
 // gulpプラグインを読み込み
 const { series,src, dest, watch } = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
+const postcss = require("gulp-postcss");
+const autoprefixer = require("autoprefixer");
 const browserSync   = require('browser-sync');
 const ejs = require("gulp-ejs");
 const rename = require("gulp-rename");
@@ -10,7 +12,6 @@ const plumber = require("gulp-plumber");//エラーでビルドを中止させ�
 const path_root = "docs";
 const path_dir_sass = "src/sass/*.scss";
 const path_dir_css = "src/common/css";
-const path_dir_dev_css = "src/common/css";
 const path_dir_js = "src/common/js";
 const path_dir_ejss = "src/ejs/";
 const name_dev_ejs = "dev_*.ejs";
@@ -18,13 +19,20 @@ const name_main_ejs = "main_*.ejs";
 const path_dir_ejs = "src/ejs/*.ejs";
 const path_dir_partial_ejs = "src/ejs/_*.ejs"; // パーシャルejsはコンパイル対象外
 
+//ベンダープレフィックスを適用する条件
+const TARGET_BROWSERS = [
+  'last 2 versions',//2世代前までのバージョンを担保
+  'ie >= 11'//IE11を担保
+];
+
 
 // sass compile task
 const compileSass = (callback) => {
+  const option = [autoprefixer(TARGET_BROWSERS)];
   src(path_dir_sass)                          // scssファイルを格納場所
     .pipe(sass({outputStyle: "compressed"}))  // cssファイルへコンパイル
-    .pipe(dest(path_dir_css))                // cssフォルダー以下に保存
-    // .pipe(dest(path_dir_dev_css));                
+    .pipe(postcss(option))                    // Sass実行時にautoprefixerも実行
+    .pipe(dest(path_dir_css))                // cssフォルダー以下に保存          
   callback();  
 };
 
