@@ -2,8 +2,7 @@
 <html lang="ja">
     <%- include('./_head', {root_path: "https://amaeno.github.io/saguru_static"}); %>
     <body class="body">
-        <%  let param = {root_path: "https://amaeno.github.io/saguru_static", visiting: "index"}; %>
-        <%- include('./_header', {param: param}); %>
+        <%- include('./_header', {root_path: "https://amaeno.github.io/saguru_static"}); %>
         <%- include('./_main'); %>
     </body>
     <script type="module" src="https://amaeno.github.io/saguru_static/common/js/index.js"></script>
