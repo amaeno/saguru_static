@@ -85,6 +85,12 @@ export const set_button_clickEvent = () => {
             });
         }
 
+        // モーダル以外の箇所を押した時、開いていたモーダルを閉じる
+        if (event.target.id && event.target.id.includes("modalBody")){
+            const headerModalBtn_element = document.getElementById("modalBtn");
+            headerModalBtn_element.checked = false;
+        }
+
         if (event.target.className.match(/Table__textarea$|Table__input$/g)){
             // クリック毎に全てのinput/textareのfocus時スタイルを解除
             const forms = document.querySelectorAll('[class*="Table__textarea"], [class*="Table__input"]');

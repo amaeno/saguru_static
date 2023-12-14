@@ -2,8 +2,7 @@
 <html lang="ja">
     <%- include('./_head', {root_path: "."}); %>
     <body class="body">
-        <%  let param = {root_path: ".", visiting: "index"}; %>
-        <%- include('./_header', {param: param}); %>
+        <%- include('./_header', {root_path: "."}); %>
         <%- include('./_main'); %>
     </body>
     <script type="module" src="./common/js/index.js"></script>
